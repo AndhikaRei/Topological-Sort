@@ -9,7 +9,7 @@ Logkom.
 TA, AI.
 AI, Orkom, Socif.
 Socif, Grafkom.
-Wisuda, Par, Logkom, TA.
+Wisuda, PAR, Logkom, TA.
 PAR.
 Daspro.
 Alstrukdat, Daspro, PAR.
