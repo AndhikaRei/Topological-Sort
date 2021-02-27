@@ -1,0 +1,9 @@
+Alstrukdat.
+AEI.
+Daspro.
+TTKI.
+OOP, Alstrukdat, IOT.
+Orkom, IOT, AEI.
+Bigdata, Daspro, OOP.
+NLP, TTKI Orkom, IOT.
+IOT, Bigdata.

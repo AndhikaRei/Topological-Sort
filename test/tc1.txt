@@ -1,0 +1,29 @@
+Kalkulus.
+Fisdas.
+Kimdas.
+TTKI.
+Bing, TTKI.
+AEI, Bing, TTKI.
+KWN, Bing, TTKI.
+Kalkulus2, Kalkulus.
+Fisdas2, Fisdas.
+Kimdas2, Kimdas.
+Daspro, Kalkulus, Fisdas, Kimdas.
+PAR, Kalkulus, Fisdas, Kimdas.
+Matdis, Kalkulus2.
+Algeo, Kalkulus2.
+Logkom, Kalkulus2.
+Orkom, Daspro.
+Alstrukdat, Daspro.
+OOP, Alstrukdat.
+Basdat, Logkom, Algeo, Matdis.
+Stima, Algeo, Matdis.
+MBD, Basdat.
+OS, Orkom.
+Jarkom, OS.
+AI, Logkom, Stima, OOP.
+IOT, AI, Jarkom.
+Bigdata, MBD, Basdat.
+TA, IOT, Bigdata.
+SG, KWN.
+Wisuda, TA.

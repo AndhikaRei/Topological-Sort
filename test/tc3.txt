@@ -1,0 +1,8 @@
+MBD, OOP, Basdat.
+Basdat, Daspro, Logkom.
+Daspro.
+OOP, Alstrukdat, Daspro.
+AI, OOP, Logkom.
+PBD, OOP.
+Logkom.
+Alstrukdat.

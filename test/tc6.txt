@@ -1,0 +1,19 @@
+AEI.
+Alstrukdat.
+Daspro.
+Kalkulus2.
+Fisdas2.
+TTKI.
+OOP, Alstrukdat.
+Orkom, AEI.
+Logkom, OOP, Orkom.
+Bigdata, OOP, Stima, ML, Daspro, Matdis.
+Matdis, Kalkulus2.
+Algeo, Matdis, PAR.
+PAR, Fisdas2.
+NLP, Orkom, IOT, AI, PAR, TTKI.
+Stima, OOP, Logkom.
+IOT, Orkom, Logkom.
+ML, Matdis, Algeo.
+AI, Algeo, PAR.
+Wisuda, Stima, IOT, Bigdata, ML, AI, NLP.

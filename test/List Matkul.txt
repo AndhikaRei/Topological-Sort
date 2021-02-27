@@ -1,0 +1,69 @@
+Kalkulus-Kalkulus
+Fisdas-Fisika Dasar
+TTKI-Tata Tulis Karya Ilmiah
+Bing-Bahasa Inggris
+Kimdas-Kimia Dasar
+Kalkulus2-Kalkulus 2
+Fisdas2-Fisika Dasar 2
+Kimdas2-Kimia Dasar 2
+PAR-Pengantar Analisis Rangkaian
+Asling-Astronomi dan Lingkungan
+AEI-Agama dan Etika Islam
+KWN-Kewarganegaraan
+SG-Studium Generale
+Pengling-Pengetahuan dan Lingkungan
+Manpro-Manajemen Proyek
+Basjep-Bahasa Jepang
+Finplan-Financial Planning
+Wirus-Kewirausahaan
+Daspro-Dasar Pemrograman
+Logkom-Logika Komputasional
+OOP-Pemrograman Berorientasi Objek	
+Alstrukdat-Algoritma & Struktur Data
+Stima-Strategi Algoritma	
+Matdis-Matematika Diskrit			
+Probstat-Probabilitas dan Statistika	
+TBFO-Teori Bahasa Formal dan Otomata			
+OS-Sistem Operasi	
+Algeo-Aljabar Linier dan Geometri			
+Basdat-Basis Data	
+Orkom-Organisasi dan Arsitektur Komputer
+RPL-Rekayasa Perangkat Lunak	
+AI-Inteligensi Buatan
+PBD-Pengembangan Aplikasi pada Platform Khusus	
+Webd-Pengembangan Aplikasi Berbasis Web	
+ML-Pembelajaran Mesin	
+Jarkom-Jaringan Komputer		
+Sister-Sistem Paralel dan Terdistribusi	
+SI-Sistem Informasi			
+PPL-Proyek Perangkat Lunak	
+MPPL-Manajemen Proyek Perangkat Lunak	
+Grafkom-Grafika Komputer	
+MBD-Manajemen Basis Data			
+Socif-Socio Informatika dan Profesionalisme	
+IMK-Interaksi Manusia Komputer	
+DPPL-Dasar Pembangunan Perangkat Lunak	
+PU-Pemrograman Unit 	
+Kriptografi-Kriptografi	
+PDL-Pemodelan Data Lanjut	
+Datamining-Ilmu Data dan Penggalian Data	
+PKKBIA-Pengembangan Keprofesian dan Komunitas bidang Informatika A	
+PKKBIB-Pengembangan Keprofesian dan Komunitas bidang Informatika B	
+PKKBIC-Pengembangan Keprofesian dan Komunitas bidang Informatika C	
+SE-Software Engineering
+Komla-Komputasi Layanan	
+TA-Tugas Akhir
+Visdat-Visualisasi Data dan Informasi	
+SpeechRecognition-Pemrosesan Ucapan	
+PKI-Pengembangan Kemampuan Interpersonal	
+RPLSD-Rekayasa Perangkat Lunak Spesifik Domain	
+PAT-Pengembangan Aplikasi Terdistribusi	
+IR-Sistem Temu Balik Informasi	
+SIL-Sistem Informasi Lanjut	
+Bigdata-Teknologi Big Data	
+IOT-Pengembangan Sistem IoT	
+UX-Rekayasa Interaksi
+RPP-Representasi Pengetahuan dan Penalaran	
+NLP-Pemrosesan Bahasa Alami
+MLL-Pembelajaran Mesin Lanjut
+Wisuda-Wisuda

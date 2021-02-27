@@ -1,0 +1,15 @@
+Sister, OS.
+OS, OOP, Stima, Orkom.
+PBD, OS, Orkom.
+Grafkom, PBD, Orkom.
+Orkom.
+Stima.
+OOP, Alstrukdat, Logkom.
+Logkom.
+TA, AI.
+AI, Orkom, Socif.
+Socif, Grafkom.
+Wisuda, Par, Logkom, TA.
+PAR.
+Daspro.
+Alstrukdat, Daspro, PAR.

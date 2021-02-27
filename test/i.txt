@@ -1,0 +1,79 @@
+1.	Buatlah query untuk menampilkan berapa jumlah kursi yang direservasi 
+per bulan, urutkan dari bulan yang memiliki reservasi kursi paling banyak.
+
+SELECT count(idkursi),Month(waktumulai) FROM reservasi GROUP BY Month(waktumulai) ORDER BY count(idkursi) desc;
+
+2.	Di bioskop, tiket hanya dapat dipesan melalui reservasi. Buatlah query yang dapat menampilkan genre film yang dirilis selepas tahun 1995 sebagai “Genre” dan jumlah tiket film terjual dari genre tersebut sebagai “Tiket Terjual”!
+With genre1995 as (SELECT genre,min(tahun) FROM film NATURAL JOIN film_has_genre Group By genre Having min(tahun) > 1995 )
+SELECT genre as Genre, count(idpelanggan) as Tiket FROM
+film NATURAL JOIN film_has_genre NATURAL JOIN reservasi WHERE tahun >1995 and genre in (SELECT genre FROM genre1995) GROUP BY genre ;
+
+3.	Buatlah query untuk menampilkan id, nama, dan jumlah kursi dari studio yang memiliki kemampuan 3D dan memiliki jumlah kursi lebih dari 150
+WITH 3d as (SELECT DISTINCT idstudio FROM studio NATURAL JOIN studio_has_kemampuanfilm WHERE kemampuan ="3D")
+SELECT idstudio, namastudio, count(idkursi) FROM studio NATURAL JOIN kursi WHERE idstudio in (SELECT idstudio FROM 3d) GROUP BY idstudio HAVING count(idkursi)>150; 
+
+4.	Buatlah query untuk menampilkan nama, tahun rilis, durasi, rating, dan jumlah penonton dari film yang dirilis sebelum tahun reformasi, memiliki rating di atas 7, dan telah ditonton lebih dari 352 orang. Urutkan dari film yang memiliki rating paling tinggi
+SELECT namafilm,tahun,durasi,imdbrating,count(idpelanggan) FROM film NATURAL JOIN reservasi WHERE imdbrating > 7 and tahun <1998 GROUP BY idfilm ;
+
+HAVING count(idpelanggan) > 325
+
+5.	Buatlah sebuah query untuk menampilkan id film yang ditayangkan di studio 10 hingga studio 19 pada bulan januari hingga september tahun 2015 dan memiliki rating lebih dari 6. Gunakanlah set operation! 
+(SELECT idfilm FROM film NATURAL JOIN penayangan WHERE idstudio between 10 and 19)
+INTERSECT
+(SELECT idfilm FROM film WHERE imdbrating > 6)
+INTERSECT
+(SELECT idfilm FROM film NATURAL JOIN penayangan WHERE waktumulai Between"2015-1-1" and "2015-9-30");
+
+6. Buatlah sebuah view bernama “marcus_movie” yang menampilkan judul film sebagai “Judul”, rating IMDB sebagai “Rating Film”, dan tahun rilis sebagai “Tahun” dari film-film yang pernah dilihat oleh pelanggan yang memiliki nama depan Marcus! Tunjukkan juga bahwa view berhasil dibuat!
+
+CREATE view marcus_movie as (
+SELECT DISTINCT namafilm as Judul,imdbrating as "Rating Film", tahun as Tahun FROM film NATURAL JOIN reservasi NATURAL JOIN pelanggan WHERE namapelanggan LIKE "Marcus %" or namapelanggan = "Marcus");
+
+7.	Satu film dapat memiliki lebih dari satu genre. Buatlah View dengan nama ‘above_avg_genre_penayangan’ yang menampilkan genre sebagai ‘nama_genre’ dan jumlah penayangannya sebagai ‘jumlah penayangan’ untuk genre film yang memiliki jumlah penayangan di atas rata-rata. Tampilkan hasil akhir viewnya!
+
+SELECT genre as nama_genre, count(idstudio) as jumlah_penayangan FROM film NATURAL JOIN film_has_genre NATURAL JOIN penayangan GROUP BY nama_genre HAVING jumlah_penayangan >(SELECT avg(jumlah_penayangan) FROM(SELECT genre as nama_genre, count(idstudio) as jumlah_penayangan FROM film NATURAL JOIN film_has_genre NATURAL JOIN penayangan GROUP BY nama_genre) as jar) ;
+
+
+8.	Veronica Doheny selalu membuat sebuah reservasi dengan pacarnya dengan menonton film yang tayang di tahun baru. Tetapi, mereka tidak akan menonton film yang memiliki rating dibawah 7. Namun, pada pada malam tahun baru, selalu saja terdapat bug sehingga transaksi yang ia lakukan tidak tercatat. Bantu pegawai untuk menambahkan record yang hilang tersebut. (Kerjakan hanya dengan 1 query saja, untuk letak kursi dibebaskan asalkan bersebelahan dengan asumsi seluruh kursi masih kosong)
+
+INSERT into reservasi SELECT * FROM(
+(SELECT idfilm,idstudio,waktumulai,"B1" as idkursi, idpelanggan from penayangan,pelanggan WHERE month(waktumulai)=01 and day(waktumulai)=01 and namapelanggan="Veronica Doheny")
+Union
+(SELECT idfilm,idstudio,waktumulai,"B2" as idkursi, idpelanggan from penayangan,pelanggan WHERE month(waktumulai)=12 AND day(waktumulai)=31 and namapelanggan="Veronica Doheny"));
+
+
+
+9.	IMDB ingin memperbarui rating beberapa film berdasarkan jumlah penontonnya. Buatlah query untuk mengupdate rating film yang memiliki jumlah penonton diatas 500 dan rating lebih kecil dari 6.00 menjadi 6.00. Tunjukkan bahwa tidak ada lagi film yang memiliki penonton diatas 500 yang memiliki rating dibawah 6.00.
+
+
+UPDATE film SET imdbrating = 6.00 WHERE idfilm in(
+SELECT idfilm FROM film NATURAL JOIN reservasi GROUP BY idfilm HAVING count(idpelanggan) > 500) and imdbrating <6.00;
+
+
+10.	Buatlah query untuk memperbarui nama studio yang mempunyai jumlah penayangan sebanyak 39 menjadi “Studio Basdat”
+WITH threenine as ()
+UPDATE studio SET namastudio ="Studio Basdat" WHERE idstudio in(SELECT idstudio FROM penayangan GROUP BY idstudio HAVING count(waktumulai)=39);
+
+11.	Buatlah query untuk menghapus data reservasi pada studio yang bernama “Studio 1” dan pelanggan bernama “Wm Yaple”
+DELETE FROM reservasi WHERE idpelanggan=(SELECT idpelanggan FROM pelanggan WHERE namapelanggan = "WM YAPLE") and idstudio=(SELECT idstudio FROM studio WHERE namastudio="Studio 1");
+
+12.Buatlah sebuah table karyawan yang berisi id karyawan, nama, id studio. Perhatikan kolom yang harus direferensikan ke table lain.
+
+
+create table karyawan(
+idkaryawan INT,
+nama varchar(45) charset utf8,
+idstudio INT,
+PRIMARY KEY(idkaryawan),
+FOREIGN KEY(idstudio) REFERENCES studio(idstudio)
+);
+
+
+
+
+
+
+
+
+
+
