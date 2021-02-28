@@ -41,25 +41,34 @@ Bukalah 13519043_app.py menggunakan editor bawaan python (IDLE). Run program den
 1. File testcase yang diterima hanya file dengan ekstensi .txt
 2. Untuk contoh file testcase yang benar silahkan contoh file yang ada di folder test
 3. Input yang boleh dimasukkan dalam testcase adalah singkatan/kode mata kuliah, lebih lanjut lihat "test/List Matkul.txt"(jangan sampai salah juga dalam menuliskan huruf besar dan huruf kecil saat membuat testcase)
-4. List Mata Kuliah bisa ditambah, dikurangi, maupun dirubah sesuka hati (Perhatikan bahwa formatnya adalah <Singkatan>-<Nama Mata Kuliah>, tidak boleh ada "-" di nama mata kuliah)
+4. List Mata Kuliah bisa ditambah, dikurangi, maupun dirubah sesuka hati (Perhatikan bahwa formatnya adalah (Singkatan)-(Nama Mata Kuliah), tidak boleh ada "-" di nama mata kuliah)
 5. Selamat mencoba, tips : lebih mudah menggunakan code editor karena aplikasi tidak langsung close 
 6. Apabila tidak bisa membaca file coba liat cara 3 langkah ke-1
 7. Output hanya akan ditampilkan di layar cmd  
-8. Cara kerja algoritma decrease and conquer dapat dilihat langsung pada source codenya langsung yang sudah diberi komentar dan penjelasan untuk tiap fungsi. Penjelasan singkat dengan notasi algoritmik adalah sebagai berikut:
+8. Penjelasan singkat algoritma decrease and conquer yang digunakan dengan notasi algoritmik adalah sebagai berikut: (lengkapnya cek source code)
 ```
-L ← list kosong penampung simpul terurut 
-S ← himpunan simpul yang tidak mempunyai sisi yang masuk 
-while S not-empty do 
-    ambil simpul n dari S 
-    masukkan n ke L 
-    for each simpul m dengan sisi e dari n ke m do 
-        hilangkan sisi e dari graf 
-        if m tidak punya sisi masuk lagi then 
-            masukkan m ke dalam S 
-if graf memiliki sisi then 
-    return error (graf memiliki setidaknya satu siklus) 
-else 
-    return L (keterurutan secara topologi diperoleh)
+A ← list seluruh matkul {simpul matkul}
+B ← semester seluruh matkul
+C ← jumlah prequisisite seluruh matkul
+L ← list kosong penampung simpul terurut dan sudah dikunjungi 
+S ← edge yang merepresentasikan matkul dan prequisitenya
+function decreaseAndConquer(input, output L:listOfNode)
+    if panjang(S) == panjang(A) then
+        {topological sort sudah ditemukan}
+    else then
+        ambil simpul n dari A yang jumlah prequisitenya 0 dan belum dikunjungi   {C[indexOf(n)di A]=0 and n not in L}
+       if (n = NULL) then {tidak ada simpul yang bisa diambil}
+            error (graf memiliki setidaknya satu siklus) 
+        else then
+            masukkan n ke L 
+            for each simpul m di S dengan sisi e dari a ke m do
+                if (a=n) then
+                    hilangkan sisi e dari graf 
+                    kurangi jumlah prequisiste dari m  {C[indexOf(m)di A]-← 1 }
+                    if (semester(m) <= semester(n)) then
+                        semester(m) = semester(n) + 1 {B[indexOf(m)di A] ← B[indexOf(n)di A] + 1}
+            decreaseAndConquer(L) {recursively solve }
+                    
 ```
 9. Apabila masih tidak bisa run silahkan hubungi pembuat
 
